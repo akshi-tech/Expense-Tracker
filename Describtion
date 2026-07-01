@@ -1,0 +1,25 @@
+# Expense Tracker
+
+Expense Tracker is a simple web application designed to help students and individuals track their daily expenses and manage their spending habits. Many people spend money on food, travel, shopping, and other activities without keeping a record, making it difficult to understand where their money goes each month.
+
+This application allows users to add, view, and manage their daily expenses in an organized way. Expenses can be categorized into different groups such as Food, Travel, Shopping, Bills, and Others. The application automatically calculates total spending and provides a clear summary of expenses.
+
+The main goal of this project is to promote better financial awareness and help users make informed spending decisions. The application is designed to be simple, user-friendly, and accessible from any device through a web browser.
+
+Key Features:
+
+* Add daily expenses
+* Categorize expenses
+* View expense history
+* Calculate total spending
+* Monthly expense summary
+* Simple and responsive user interface
+
+Technology Stack:
+
+* HTML for structure
+* CSS for design
+* JavaScript for functionality
+* Browser Local Storage for saving data
+
+This project is suitable for students and beginners who want to learn web development while solving a real-world problem.
