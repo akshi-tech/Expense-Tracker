@@ -1,5 +1,3 @@
-# Expense-Tracker
-Expense Tracker is a simple web application that helps users record, categorize, and monitor their daily expenses. It provides a clear overview of spending habits through expense summaries, making personal money management easier and more organized.  Developed by Akshita Bind
 # 💰 Expense Tracker
 
 A simple and responsive web application that helps users track and manage their daily expenses. The application allows users to record expenses, categorize transactions, monitor total spending, and view monthly summaries to better understand their spending habits.
