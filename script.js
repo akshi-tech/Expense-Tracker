@@ -1,5 +1,8 @@
+// ===============================
 // Select Elements
+// ===============================
 const expenseForm = document.getElementById("expenseForm");
+
 const amount = document.getElementById("amount");
 const category = document.getElementById("category");
 const date = document.getElementById("date");
@@ -13,26 +16,53 @@ const remainingBudget = document.getElementById("remainingBudget");
 const budgetInput = document.getElementById("budgetInput");
 const saveBudget = document.getElementById("saveBudget");
 
-// Budget
-let budget = 0;
+// ===============================
+// Variables
+// ===============================
+let budget = Number(localStorage.getItem("budget")) || 0;
 
-// Current Total
+let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+
 let total = 0;
 
-// Load saved budget
-const savedBudget = localStorage.getItem("budget");
+// ===============================
+// Display Expenses Function
+// ===============================
+function displayExpenses() {
 
-if (savedBudget) {
-    budget = Number(savedBudget);
+    expenseTable.innerHTML = "";
+
+    total = 0;
+
+    expenses.forEach(function(expense) {
+
+        total += expense.amount;
+
+        let row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${expense.date}</td>
+            <td>${expense.category}</td>
+            <td>${expense.description}</td>
+            <td>₹${expense.amount}</td>
+            <td>❌</td>
+        `;
+
+        expenseTable.appendChild(row);
+
+    });
+
+    totalExpense.textContent = "₹" + total;
     remainingBudget.textContent = "₹" + (budget - total);
 }
 
+// ===============================
 // Save Budget
+// ===============================
 saveBudget.addEventListener("click", function () {
 
     budget = Number(budgetInput.value);
 
-    // Save budget in browser
     localStorage.setItem("budget", budget);
 
     remainingBudget.textContent = "₹" + (budget - total);
@@ -41,30 +71,33 @@ saveBudget.addEventListener("click", function () {
 
 });
 
+// ===============================
 // Add Expense
-expenseForm.addEventListener("submit", function (event) {
+// ===============================
+expenseForm.addEventListener("submit", function(event){
 
     event.preventDefault();
 
-    let expenseAmount = Number(amount.value);
+    let expense = {
 
-    total += expenseAmount;
+        amount: Number(amount.value),
+        category: category.value,
+        date: date.value,
+        description: description.value
 
-    totalExpense.textContent = "₹" + total;
-    remainingBudget.textContent = "₹" + (budget - total);
+    };
 
-    let row = document.createElement("tr");
+    expenses.push(expense);
 
-    row.innerHTML = `
-        <td>${date.value}</td>
-        <td>${category.value}</td>
-        <td>${description.value}</td>
-        <td>₹${expenseAmount}</td>
-        <td>❌</td>
-    `;
+    localStorage.setItem("expenses", JSON.stringify(expenses));
 
-    expenseTable.appendChild(row);
+    displayExpenses();
 
     expenseForm.reset();
 
 });
+
+// ===============================
+// Run When Page Opens
+// ===============================
+displayExpenses();
