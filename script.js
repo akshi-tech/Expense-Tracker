@@ -19,10 +19,21 @@ let budget = 0;
 // Current Total
 let total = 0;
 
+// Load saved budget
+const savedBudget = localStorage.getItem("budget");
+
+if (savedBudget) {
+    budget = Number(savedBudget);
+    remainingBudget.textContent = "₹" + (budget - total);
+}
+
 // Save Budget
 saveBudget.addEventListener("click", function () {
 
     budget = Number(budgetInput.value);
+
+    // Save budget in browser
+    localStorage.setItem("budget", budget);
 
     remainingBudget.textContent = "₹" + (budget - total);
 
