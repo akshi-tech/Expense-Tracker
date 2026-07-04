@@ -10,14 +10,28 @@ const expenseTable = document.getElementById("expenseTable");
 const totalExpense = document.getElementById("totalExpense");
 const remainingBudget = document.getElementById("remainingBudget");
 
+const budgetInput = document.getElementById("budgetInput");
+const saveBudget = document.getElementById("saveBudget");
+
 // Budget
-let budget = 5000;
+let budget = 0;
 
 // Current Total
 let total = 0;
 
-// When form is submitted
-expenseForm.addEventListener("submit", function(event){
+// Save Budget
+saveBudget.addEventListener("click", function () {
+
+    budget = Number(budgetInput.value);
+
+    remainingBudget.textContent = "₹" + (budget - total);
+
+    budgetInput.value = "";
+
+});
+
+// Add Expense
+expenseForm.addEventListener("submit", function (event) {
 
     event.preventDefault();
 
@@ -26,7 +40,7 @@ expenseForm.addEventListener("submit", function(event){
     total += expenseAmount;
 
     totalExpense.textContent = "₹" + total;
-    remainingBudget.textContent = "₹" + (budget-total);
+    remainingBudget.textContent = "₹" + (budget - total);
 
     let row = document.createElement("tr");
 
