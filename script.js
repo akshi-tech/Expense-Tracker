@@ -48,7 +48,7 @@ let bills = 0;
 let entertainment = 0;
 let others = 0;
 
-    expenses.forEach(function(expense) {
+    expenses.forEach(function(expense, index) {
 
         total += expense.amount;
 
@@ -78,7 +78,7 @@ else {
             <td>${expense.category}</td>
             <td>${expense.description}</td>
             <td>₹${expense.amount}</td>
-            <td>❌</td>
+            <td><button onclick="deleteExpense(${index})">❌</button></td>
         `;
 
         expenseTable.appendChild(row);
@@ -141,3 +141,13 @@ expenseForm.addEventListener("submit", function(event){
 // Run When Page Opens
 // ===============================
 displayExpenses();
+
+function deleteExpense(index) {
+
+    expenses.splice(index, 1);
+
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+
+    displayExpenses();
+
+}
