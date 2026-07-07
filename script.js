@@ -13,6 +13,13 @@ const expenseTable = document.getElementById("expenseTable");
 const totalExpense = document.getElementById("totalExpense");
 const remainingBudget = document.getElementById("remainingBudget");
 
+const foodTotal = document.getElementById("foodTotal");
+const travelTotal = document.getElementById("travelTotal");
+const shoppingTotal = document.getElementById("shoppingTotal");
+const billsTotal = document.getElementById("billsTotal");
+const entertainmentTotal = document.getElementById("entertainmentTotal");
+const othersTotal = document.getElementById("othersTotal");
+
 const budgetInput = document.getElementById("budgetInput");
 const saveBudget = document.getElementById("saveBudget");
 
@@ -34,9 +41,35 @@ function displayExpenses() {
 
     total = 0;
 
+    let food = 0;
+let travel = 0;
+let shopping = 0;
+let bills = 0;
+let entertainment = 0;
+let others = 0;
+
     expenses.forEach(function(expense) {
 
         total += expense.amount;
+
+        if (expense.category === "Food") {
+    food += expense.amount;
+}
+else if (expense.category === "Travel") {
+    travel += expense.amount;
+}
+else if (expense.category === "Shopping") {
+    shopping += expense.amount;
+}
+else if (expense.category === "Bills") {
+    bills += expense.amount;
+}
+else if (expense.category === "Entertainment") {
+    entertainment += expense.amount;
+}
+else {
+    others += expense.amount;
+}
 
         let row = document.createElement("tr");
 
