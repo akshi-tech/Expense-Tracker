@@ -85,6 +85,13 @@ else {
 
     });
 
+    foodTotal.textContent = "🍔 Food : ₹" + food;
+travelTotal.textContent = "🚌 Travel : ₹" + travel;
+shoppingTotal.textContent = "🛍 Shopping : ₹" + shopping;
+billsTotal.textContent = "📄 Bills : ₹" + bills;
+entertainmentTotal.textContent = "🎬 Entertainment : ₹" + entertainment;
+othersTotal.textContent = "📦 Others : ₹" + others;
+
     totalExpense.textContent = "₹" + total;
     remainingBudget.textContent = "₹" + (budget - total);
 }
