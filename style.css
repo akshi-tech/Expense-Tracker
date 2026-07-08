@@ -92,6 +92,14 @@ font-size:17px;
 
 .card{
 
+transition:
+transform .35s,
+box-shadow .35s;
+
+}
+
+.card{
+
 flex:1;
 
 background:rgba(255,255,255,.06);
@@ -112,9 +120,9 @@ transition:.35s;
 
 .card:hover{
 
-transform:translateY(-8px);
+transform:translateY(-10px) scale(1.02);
 
-box-shadow:0 25px 45px rgba(59,130,246,.25);
+box-shadow:0 25px 45px rgba(139,92,246,.25);
 
 }
 
@@ -127,15 +135,20 @@ color:#93C5FD;
 
 .card p{
 
-font-size:30px;
+    font-size:32px;
 
-font-weight:700;
+    font-weight:700;
 
-color:white;
+    margin-top:12px;
 
-margin-top:12px;
+    color:white;
+
+    text-shadow:
+        0 0 8px rgba(59,130,246,.35);
 
 }
+
+
 
 /* Form */
 
@@ -169,7 +182,32 @@ form{
 label{
     margin-top:15px;
     margin-bottom:5px;
+    color:#CBD5E1;
+    font-weight:500;
 }
+
+input,
+select{
+
+height:50px;
+
+padding:12px;
+
+font-size:16px;
+
+border-radius:12px;
+
+background:#1E293B;
+
+color:white;
+
+border:1px solid rgba(255,255,255,.08);
+
+margin-bottom:15px;
+
+}
+
+
 
 input,
 select,
@@ -184,7 +222,79 @@ textarea::placeholder{
     color:#94A3B8;
 }
 
+#budgetInput{
+
+    width:100%;
+
+    padding:14px;
+
+    font-size:17px;
+
+    border-radius:12px;
+
+    margin-bottom:12px;
+
+}
+
+#saveBudget{
+
+    width:100%;
+
+    padding:14px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    border-radius:12px;
+
+}
+
 button{
+
+    button[type="submit"]{
+
+    width:100%;
+
+    padding:18px;
+
+    font-size:22px !important;
+
+    font-weight:700;
+
+    border-radius:14px;
+
+    letter-spacing:.5px;
+
+}
+
+    button{
+
+width:100%;
+
+padding:16px;
+
+font-size:18px;
+
+font-weight:600;
+
+border:none;
+
+border-radius:14px;
+
+background:linear-gradient(
+90deg,
+#8B5CF6,
+#3B82F6
+);
+
+color:white;
+
+cursor:pointer;
+
+transition:.35s;
+
+}
 
 background:linear-gradient(
 90deg,
@@ -200,10 +310,20 @@ border-radius:12px;
 
 transition:.3s;
 
+
+
 }
 
 button:hover{
 
+    button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 10px 25px rgba(59,130,246,.35);
+
+}
 transform:translateY(-3px);
 
 box-shadow:0 0 20px rgba(59,130,246,.45);
@@ -213,49 +333,44 @@ box-shadow:0 0 20px rgba(59,130,246,.45);
 /* Expense Table */
 
 .expense-list{
-    background:white;
-    padding:25px;
-    border-radius:15px;
+    background:rgba(30,41,59,.75);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+    padding:30px;
     margin-bottom:30px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
 }
 
 .expense-list h2{
     margin-bottom:20px;
-    color:#10B981;
+    color:#93C5FD;
 }
 
 table{
-
-background:rgba(30,41,59,.75);
-
-color:white;
-
-border-radius:20px;
-
-overflow:hidden;
-
+    width:100%;
+    border-collapse:collapse;
+    color:white;
 }
 
-thead{
+th{
+    background:linear-gradient(
+        90deg,
+        #8B5CF6,
+        #3B82F6
+    );
 
-background:linear-gradient(
-90deg,
-#8B5CF6,
-#3B82F6
-);
-
+    padding:18px;
 }
-tbody tr{
 
-border-bottom:1px solid rgba(255,255,255,.08);
-
+td{
+    padding:16px;
+    text-align:center;
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 tbody tr:hover{
-
-background:rgba(59,130,246,.12);
-
+    background:rgba(59,130,246,.12);
 }
 
 /* Summary */
@@ -271,8 +386,8 @@ color:white;
 }
 
 .summary h2{
-    margin-bottom:15px;
-    color:#10B981;
+    margin-bottom:20px;
+    color:#93C5FD;
 }
 
 .summary ul{
@@ -280,8 +395,9 @@ color:white;
 }
 
 .summary li{
-    padding:10px 0;
-    border-bottom:1px solid #eee;
+    padding:14px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    color:#E2E8F0;
 }
 
 /* Footer */
@@ -289,7 +405,7 @@ color:white;
 footer{
     text-align:center;
     margin-top:30px;
-    color:#666;
+    color:#94A3B8;
 }
 
 /* Responsive */
@@ -301,8 +417,22 @@ footer{
 }
 
 }
+ 
+.total-card{
+    border-top:4px solid #8B5CF6;
+}
+
+.budget-card{
+    border-top:4px solid #3B82F6;
+}
+
+.remaining-card{
+    border-top:4px solid #06B6D4;
+}
 
 @keyframes galaxy{
+
+    
 
 0%{
 background-position:0% 50%;
