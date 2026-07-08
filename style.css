@@ -9,9 +9,23 @@
 }
 
 body{
-    background:#f4f7fb;
-    color:#333;
-    padding:20px;
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #111827,
+        #1e1b4b,
+        #172554
+    );
+
+    background-size:400% 400%;
+
+    animation: galaxy 18s ease infinite;
+
+    color:#F8FAFC;
+
+    padding:30px;
+
+    min-height:100vh;
 }
 
 /* Header */
