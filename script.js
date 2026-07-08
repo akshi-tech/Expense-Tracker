@@ -32,6 +32,8 @@ let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 
 let total = 0;
 
+let editIndex = -1;
+
 // ===============================
 // Display Expenses Function
 // ===============================
@@ -78,7 +80,10 @@ else {
             <td>${expense.category}</td>
             <td>${expense.description}</td>
             <td>₹${expense.amount}</td>
-            <td><button onclick="deleteExpense(${index})">❌</button></td>
+            <td>
+    <button onclick="editExpense(${index})">✏️</button>
+    <button onclick="deleteExpense(${index})">❌</button>
+</td>
         `;
 
         expenseTable.appendChild(row);
@@ -114,20 +119,25 @@ saveBudget.addEventListener("click", function () {
 // ===============================
 // Add Expense
 // ===============================
-expenseForm.addEventListener("submit", function(event){
+expenseForm.addEventListener("submit", function(event) {
 
     event.preventDefault();
 
-    let expense = {
+    let expenseAmount = Number(amount.value);
 
-        amount: Number(amount.value),
+    let expense = {
+        amount: expenseAmount,
         category: category.value,
         date: date.value,
         description: description.value
-
     };
 
-    expenses.push(expense);
+    if (editIndex === -1) {
+        expenses.push(expense);
+    } else {
+        expenses[editIndex] = expense;
+        editIndex = -1;
+    }
 
     localStorage.setItem("expenses", JSON.stringify(expenses));
 
@@ -149,5 +159,20 @@ function deleteExpense(index) {
     localStorage.setItem("expenses", JSON.stringify(expenses));
 
     displayExpenses();
+
+}   
+
+function editExpense(index) {
+
+    let expense = expenses[index];
+
+    amount.value = expense.amount;
+    category.value = expense.category;
+    date.value = expense.date;
+    description.value = expense.description;
+
+    editIndex = index;
+
+    alert("Editing expense #" + index);
 
 }
