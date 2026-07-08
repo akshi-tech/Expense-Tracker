@@ -31,16 +31,42 @@ body{
 /* Header */
 
 header{
-    text-align:center;
-    background:#10B981;
-    color:white;
-    padding:25px;
-    border-radius:15px;
-    margin-bottom:25px;
+
+text-align:center;
+
+padding:35px;
+
+margin-bottom:35px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+
 }
 
 header h1{
-    font-size:35px;
+
+font-size:42px;
+
+font-weight:700;
+
+background:linear-gradient(
+90deg,
+#8B5CF6,
+#3B82F6,
+#06B6D4
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
 }
 
 header p{
@@ -194,6 +220,22 @@ footer{
 
 .dashboard{
     flex-direction:column;
+}
+
+}
+
+@keyframes galaxy{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
 }
 
 }
