@@ -34,10 +34,63 @@ let total = 0;
 
 let editIndex = -1;
 
+let expenseChart;
+
 // ===============================
 // Display Expenses Function
 // ===============================
 function displayExpenses() {
+
+    function updateChart(food, travel, shopping, bills, entertainment, others) {
+
+    if (expenseChart) {
+        expenseChart.destroy();
+    }
+
+    const ctx = document.getElementById("expenseChart");
+
+    expenseChart = new Chart(ctx, {
+
+        type: "pie",
+
+        data: {
+
+            labels: [
+                "Food",
+                "Travel",
+                "Shopping",
+                "Bills",
+                "Entertainment",
+                "Others"
+            ],
+
+            datasets: [{
+
+                data: [
+                    food,
+                    travel,
+                    shopping,
+                    bills,
+                    entertainment,
+                    others
+                ],
+
+                backgroundColor: [
+                    "#8B5CF6",
+                    "#3B82F6",
+                    "#06B6D4",
+                    "#F59E0B",
+                    "#EF4444",
+                    "#10B981"
+                ]
+
+            }]
+
+        }
+
+    });
+
+}
 
     expenseTable.innerHTML = "";
 
