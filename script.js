@@ -123,50 +123,82 @@ updateChart(
 
     const ctx = document.getElementById("expenseChart");
 
-    expenseChart = new Chart(ctx, {
+   expenseChart = new Chart(ctx, {
 
-        type: "pie",
+    type: "pie",
 
-        data: {
+    data: {
 
-            labels: [
-                "Food",
-                "Travel",
-                "Shopping",
-                "Bills",
-                "Entertainment",
-                "Others"
+        labels: [
+            "Food",
+            "Travel",
+            "Shopping",
+            "Bills",
+            "Entertainment",
+            "Others"
+        ],
+
+        datasets: [{
+
+            data: [
+                food,
+                travel,
+                shopping,
+                bills,
+                entertainment,
+                others
             ],
 
-            datasets: [{
+            backgroundColor: [
+                "#8B5CF6",
+                "#3B82F6",
+                "#06B6D4",
+                "#F59E0B",
+                "#EF4444",
+                "#10B981"
+            ]
 
-                data: [
-                    food,
-                    travel,
-                    shopping,
-                    bills,
-                    entertainment,
-                    others
-                ],
+        }]
 
-                backgroundColor: [
-                    "#8B5CF6",
-                    "#3B82F6",
-                    "#06B6D4",
-                    "#F59E0B",
-                    "#EF4444",
-                    "#10B981"
-                ]
+    },
 
-            }]
+    options: {
 
+    responsive: true,
+
+    plugins: {
+
+        legend: {
+            position: "bottom",
+            labels: {
+                color: "#ffffff",
+                font: {
+                    size: 15
+                }
+            }
+        },
+
+        title: {
+            display: true,
+            text: "Expense Distribution",
+            color: "#ffffff",
+            font: {
+                size: 22
+            }
         }
 
-    });
+    },
+
+    animation: {
+        animateRotate: true,
+        duration: 1800
+    }
 
 }
 
+});
 
+    }
 
 
 // ===============================

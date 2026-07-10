@@ -476,10 +476,15 @@ background-position:0% 50%;
 
 }
 
+.chart-container{
+    padding:40px;
+    border-radius:20px;
+    background:#242d42;
+    box-shadow:0 0 25px rgba(110,168,254,.25);
+}
+
 #expenseChart{
-
-    max-width:500px;
-
-    margin:auto;
-
+    max-width: 450px;
+    max-height: 450px;
+    margin: auto;
 }
