@@ -100,9 +100,20 @@ billsTotal.textContent = "📄 Bills : ₹" + bills;
 entertainmentTotal.textContent = "🎬 Entertainment : ₹" + entertainment;
 othersTotal.textContent = "📦 Others : ₹" + others;
 
-    totalExpense.textContent = "₹" + total;
-    remainingBudget.textContent = "₹" + (budget - total);
+totalExpense.textContent = "₹" + total;
+remainingBudget.textContent = "₹" + (budget - total);
+
+updateChart(
+    food,
+    travel,
+    shopping,
+    bills,
+    entertainment,
+    others
+);
+
 }
+
 
     function updateChart(food, travel, shopping, bills, entertainment, others) {
 
@@ -154,6 +165,8 @@ othersTotal.textContent = "📦 Others : ₹" + others;
     });
 
 }
+
+
 
 
 // ===============================
