@@ -1,0 +1,61 @@
+# 🌌 Galaxy Expense Tracker
+
+A modern Expense Tracker built using **HTML, CSS, and JavaScript** with a beautiful Galaxy-themed UI.
+
+## ✨ Features
+
+- 💰 Set Monthly Budget
+- ➕ Add Expenses
+- ✏️ Edit Expenses
+- ❌ Delete Expenses
+- 💾 Save Data using Local Storage
+- 📊 Expense Summary by Category
+- 🥧 Interactive Pie Chart
+- 💵 Remaining Budget Calculation
+- 🌌 Galaxy Inspired Responsive UI
+
+---
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- Chart.js
+- Local Storage API
+
+---
+
+## 📷 Screenshots
+
+(Add screenshots here)
+
+---
+
+## 🚀 How to Run
+
+1. Clone this repository
+
+```bash
+git clone <your-repository-link>
+```
+
+2. Open the project folder
+
+3. Open `index.html` in your browser
+
+---
+
+## 🎯 Future Improvements
+
+- 🔍 Search Expenses
+- 📅 Filter by Date
+- 📈 Monthly Bar Chart
+- 📄 Export to PDF
+- 🌙 Dark / Light Theme Toggle
+
+
+
+
+
+⭐ If you like this project, don't forget to give it a star!
